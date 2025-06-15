@@ -22,5 +22,10 @@ jobs:
     - name: Install dependencies
       run: pip install -r myai_sdk/requirements.txt
 
-    - name: Login to Azure
-      uses: azure/login@v2
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: 'SDK'
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+        package: myai_sdk
+
