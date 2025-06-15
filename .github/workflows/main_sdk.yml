@@ -19,15 +19,12 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies from myai_sdk
+      - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Copy requirements.txt to root for Azure Oryx build
-        run: cp myai_sdk/requirements.txt .
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'SDK'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-          package: myai_sdk
+          package: .
