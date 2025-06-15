@@ -1,4 +1,4 @@
-name: Deploy FastAPI to Azure Web App
+name: Deploy FastAPI app to Azure Web App - SDK
 
 on:
   push:
@@ -21,6 +21,9 @@ jobs:
 
       - name: Install dependencies from myai_sdk
         run: pip install -r myai_sdk/requirements.txt
+
+      - name: Copy requirements.txt to root for Azure Oryx build
+        run: cp myai_sdk/requirements.txt .
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
