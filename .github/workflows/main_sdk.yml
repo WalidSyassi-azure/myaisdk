@@ -1,4 +1,4 @@
-name: Deploy Python App to Azure Web App
+name: Deploy FastAPI to Azure Web App
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install dependencies from myai_sdk
         run: pip install -r myai_sdk/requirements.txt
 
       - name: Deploy to Azure Web App
