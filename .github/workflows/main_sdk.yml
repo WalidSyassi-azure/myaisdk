@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies from myai_sdk
-        run: pip install -r myai_sdk/requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Copy requirements.txt to root for Azure Oryx build
         run: cp myai_sdk/requirements.txt .
